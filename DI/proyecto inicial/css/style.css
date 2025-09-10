@@ -1,0 +1,222 @@
+/* Градиентный фон всей страницы в неоновых цветах */
+body {
+    margin: 2%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3c0a6b, #1f1c2c, #2c3e50);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite; /* плавная анимация градиента */
+}
+
+/* Анимация плавного движения градиента */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Контейнер frontpage как размытная карточка */
+#frontpage {
+    background: rgba(255, 255, 255, 0.15); /* немного прозрачная карточка */
+    backdrop-filter: blur(15px); /* блюр фона */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 40px 40px 40px;
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fffa;
+}
+
+/* Hero секция */
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Features */
+.products-section {
+    margin-bottom: 50px;
+}
+
+.products-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.products-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap; /* изменено с wrap на nowrap */
+}
+
+.products-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1 1 0; /* изменено для равного распределения */
+    min-width: 220px;
+    max-width: 320px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+/* Contact */
+.contact {
+    background: rgba(255,255,255,0.16);
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(60,10,107,0.13);
+    padding: 18px 12px;
+    max-width: 250px;
+    margin: 0 auto 32px auto;
+    font-size: 1em;
+    text-align: center;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 1.25em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact label {
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: #fff;
+    font-size: 0.97em;
+}
+
+.contact input, 
+.contact textarea {
+    padding: 8px 10px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-size: 0.97em;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    margin-bottom: 2px;
+    box-shadow: 0 1px 4px rgba(60,10,107,0.07);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    background: rgba(255,255,255,0.28);
+    box-shadow: 0 0 0 2px #8e2de2;
+}
+
+.contact textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+
+.btn {
+    padding: 10px 0;
+    border: none;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #8e2de2 0%, #ff416c 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 1px 8px #8e2de244;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #ff416c 0%, #8e2de2 100%);
+    box-shadow: 0 0 10px #ff416c, 0 0 18px #8e2de2;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 24px 0 0 0;
+    background: rgba(44,62,80,0.22);
+    border-top: 2px solid #8e2de2;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+    box-shadow: 0 -2px 16px rgba(60,10,107,0.13);
+}
+
+.footer-content p {
+    margin: 8px 0;
+}
+
+.footer-content a {
+    color: #ff416c;
+    text-decoration: none;
+    margin: 0 6px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.footer-content a:hover {
+    color: #8e2de2;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .products-list {
+        flex-wrap: wrap; /* теперь при уменьшении экрана продукты переходят в столбец */
+    }
+    .products-item {
+        max-width: 90vw;
+        width: 100%;
+    }
+}
