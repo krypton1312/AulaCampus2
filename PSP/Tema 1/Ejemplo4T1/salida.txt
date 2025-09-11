@@ -1,0 +1,24 @@
+Microsoft Windows [Versi¢n 10.0.26100.6584]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\YEHORBURLACHENKO\AulaCampus2\PSP\Tema 1\Ejemplo4T1>DIR
+ El volumen de la unidad C es Windows
+ El n£mero de serie del volumen es: 24E2-848E
+
+ Directorio de C:\Users\YEHORBURLACHENKO\AulaCampus2\PSP\Tema 1\Ejemplo4T1
+
+11/09/2025  13:19    <DIR>          .
+11/09/2025  13:12    <DIR>          ..
+11/09/2025  13:17    <DIR>          build
+11/09/2025  13:12             3.615 build.xml
+11/09/2025  13:19                 0 error.txt
+11/09/2025  13:13                 5 fichero.bat
+11/09/2025  13:12                85 manifest.mf
+11/09/2025  13:12    <DIR>          nbproject
+11/09/2025  13:19                 0 salida.txt
+11/09/2025  13:12    <DIR>          src
+11/09/2025  13:15    <DIR>          test
+               5 archivos          3.705 bytes
+               6 dirs  426.726.494.208 bytes libres
+
+C:\Users\YEHORBURLACHENKO\AulaCampus2\PSP\Tema 1\Ejemplo4T1>
