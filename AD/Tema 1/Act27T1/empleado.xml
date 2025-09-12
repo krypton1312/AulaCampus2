@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleado>
+    <idEmpleado>1</idEmpleado>
+    <nombre>Juan</nombre>
+    <apellidos>Pérez Gómez</apellidos>
+    <dni>12345678A</dni>
+    <departamiento>Informática</departamiento>
+    <sueldo>1800</sueldo>
+</empleado>
