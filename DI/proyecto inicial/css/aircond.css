@@ -1,0 +1,534 @@
+/* защита от горизонтального скролла и корректный box-sizing */
+html, body {
+    height: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* предотвращаем горизонтальный скролл */
+    overflow-y: auto;   /* прокрутка документа уносится на body (убираем внутреннюю прокрутку #frontpage) */
+}
+
+/* применяем корректный box-sizing по всему документу */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* Градиентный фон всей страницы в неоновых цветах */
+body {
+    /* Сбрасываем отступы и растягиваем фон на весь экран */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3c0a6b, #1f1c2c, #2c3e50);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* <- важно: теперь frontpage может расти вниз */
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    box-sizing: border-box;
+}
+
+/* Анимация плавного движения градиента */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Контейнер frontpage как размытная карточка */
+#frontpage {
+    width: 100%;
+    max-width: 1400px;
+    margin: 24px auto;
+    /* минимум — на весь экран, при необходимости блок будет увеличиваться */
+    min-height: 100vh;
+    padding: 24px 28px 120px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    position: relative;
+    overflow: visible; /* прокрутка у body, содержимое не будет обрезаться */
+}
+
+/* список карточек — даём запас внизу и не даём контейнеру менять размеры картинок */
+.products-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 4px 120px 4px;   /* большой нижний паддинг — оставляет пространство для футера */
+    box-sizing: border-box;
+}
+
+/* карточки: сохраняем область для изображений (aspect-ratio),
+   но даём гибкость и max-height чтобы не вылезало за экран */
+.products-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    flex: 0 1 calc(20% - 16px); /* 5 в ряд */
+    min-width: 160px;
+    aspect-ratio: 3 / 4;
+    /* снят жёсткий max-height чтобы карточки могли уместиться при увеличении контента */
+    max-height: none;
+    height: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: transform 0.18s;
+}
+
+/* footer и header выше по z-index, чтобы карточки не накладывались визуально */
+header { position: relative; z-index: 5; }
+footer { position: relative; z-index: 4; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fffa;
+}
+
+/* Hero секция */
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Features */
+.products-section {
+    margin-bottom: 50px;
+}
+
+.products-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Увеличиваем карточки, чтобы занимали максимум доступного пространства */
+/* по умолчанию 5 в ряд (desktop) */
+.products-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    flex: 0 1 calc(20% - 16px); /* 5 в ряд */
+    min-width: 180px;            /* минимальная ширина, чтобы не ломать layout */
+    /* Вместо vh: используем соотношение и ограничение по высоте, чтобы не выходило за контейнер */
+    aspect-ratio: 3 / 4;
+    max-height: 520px;
+    height: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: transform 0.18s;
+}
+
+/* Очень широкие экраны — показываем 5 в ряд */
+@media (min-width: 1600px) {
+    .products-item {
+        flex: 0 1 calc(20% - 16px); /* 5 в ряд */
+    }
+}
+
+/* Поддержка разных экранов: уменьшаем количество в ряду по ширине */
+@media (max-width: 1400px) {
+    .products-item {
+        flex: 0 1 calc(25% - 15px); /* 4 в ряд */
+    }
+}
+
+@media (max-width: 1100px) {
+    .products-item {
+        flex: 0 1 calc(33.333% - 14px); /* 3 в ряд */
+    }
+}
+
+@media (max-width: 800px) {
+    .products-item {
+        flex: 0 1 calc(50% - 12px); /* 2 в ряд */
+    }
+}
+
+@media (max-width: 520px) {
+    .products-item {
+        flex: 0 1 100%; /* 1 в ряд */
+        max-width: 100%;
+    }
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 24px 0 0 0;
+    background: rgba(44,62,80,0.22);
+    border-top: 2px solid #8e2de2;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+    box-shadow: 0 -2px 16px rgba(60,10,107,0.13);
+}
+
+.footer-content p {
+    margin: 8px 0;
+}
+
+.footer-content a {
+    color: #ff416c;
+    text-decoration: none;
+    margin: 0 6px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.footer-content a:hover {
+    color: #8e2de2;
+}
+
+/* footer карточки (название) */
+.product-footer {
+    width: 100%;
+    background: rgba(44,62,80,0.75);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    box-sizing: border-box;
+}
+
+.product-footer h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .4px;
+    width: 100%;
+}
+
+/* цена под названием */
+.product-price {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #cfe8f7;
+    opacity: 0.95;
+    font-weight: 600;
+    background: rgba(0,0,0,0.08);
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* маленькая адаптация чтобы футер не "толкался" при соотношениях */
+@media (max-width: 520px) {
+    .product-price { font-size: 0.85rem; padding: 5px 6px; }
+}
+
+/* простой hover-эффект */
+.filter-button {
+    display: block; /* убирает inline-gap у ссылок */
+    text-decoration: none;
+    transition: transform 0.18s;
+    color: inherit;
+}
+
+.filter-button:hover {
+    transform: scale(1.07);
+}
+
+.filter-button:hover .products-item {
+    transform: translateY(-6px);
+}
+
+header {
+    position: relative;
+    z-index: 5;
+    padding: 10px 0;
+}
+
+/* основной layout навигации: logo слева, остальное справа */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Fix: стабильный размер и поведение логотипа в header */
+header nav .logo {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+    min-width: 56px;
+    min-height: 56px;
+    padding: 6px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    margin: 0 8px 0 6px;
+    overflow: hidden;
+}
+
+header nav .logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+header nav .logo img {
+    display: block;
+    width: auto;           /* сохраняем пропорции */
+    height: 100%;          /* вписываем по высоте контейнера */
+    max-width: 100%;       /* не вылазит по ширине */
+    object-fit: contain;   /* не обрезаем изображение */
+    border-radius: 10px;
+    padding: 0;
+}
+
+/* мелкая оптимизация logo */
+.logo {
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    margin-left: 6px;
+}
+
+/* навигационные ссылки — четкие кнопки-пилюли */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #eaf6ff;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* hover / active эффекты — яркий градиент + лёгкое подъём */
+.nav-links li a:hover,
+.nav-links li a:focus {
+    background: linear-gradient(90deg,#8e2de2 0%, #ff416c 100%);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(142,45,226,0.18);
+}
+
+/* маленький маркер под активной ссылкой */
+.nav-links li a.active {
+    position: relative;
+}
+.nav-links li a.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 44%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg,#8e2de2,#ff416c);
+    box-shadow: 0 6px 14px rgba(142,45,226,0.12);
+}
+
+/* мобильная оптимизация: уменьшаем размеры и укладываем логотип */
+@media (max-width: 700px) {
+    header nav {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+    .logo { width: 52px; height: 52px; border-radius: 12px; }
+    .nav-links li a { padding: 6px 8px; font-size: 0.92rem; }
+}
+
+/* небольшая тонкая анимация для заголовков */
+.hero h1 {
+    transition: transform .25s ease, text-shadow .25s ease;
+}
+.hero h1:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 10px 30px rgba(142,45,226,0.08);
+}
+
+/* Подключаем «футуристические» шрифты и глобальные семейства */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+
+/* общий шрифт страницы и акценты для заголовков */
+body {
+    font-family: 'Rajdhani', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.hero h1,
+.products-title,
+.product-footer h3 {
+    font-family: 'Orbitron', 'Rajdhani', sans-serif;
+    letter-spacing: 0.6px;
+}
+
+/* Обновлённый навбар — логотип слева, ссылки справа, футуристический вид */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* мелкая оптимизация logo */
+.logo {
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    margin-left: 6px;
+}
+
+/* навигационные ссылки — четкие кнопки-пилюли */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #eaf6ff;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* hover / active эффекты — яркий градиент + лёгкое подъём */
+.nav-links li a:hover,
+.nav-links li a:focus {
+    background: linear-gradient(90deg,#8e2de2 0%, #ff416c 100%);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(142,45,226,0.18);
+}
+
+/* маленький маркер под активной ссылкой */
+.nav-links li a.active {
+    position: relative;
+}
+.nav-links li a.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 44%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg,#8e2de2,#ff416c);
+    box-shadow: 0 6px 14px rgba(142,45,226,0.12);
+}
+
+/* мобильная оптимизация: уменьшаем размеры и укладываем логотип */
+@media (max-width: 700px) {
+    header nav {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+    .logo { width: 56px; height: 56px; }
+    .nav-links li a { padding: 6px 8px; font-size: 0.92rem; }
+}
+
+/* небольшая тонкая анимация для заголовков */
+.hero h1 {
+    transition: transform .25s ease, text-shadow .25s ease;
+}
+.hero h1:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 10px 30px rgba(142,45,226,0.08);
+}
