@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<empleado>
+    <idEmpleado>1</idEmpleado>
+    <nombre>jose</nombre>
+    <apellidos>asd</apellidos>
+    <dni>01923</dni>
+    <departamiento>depart</departamiento>
+    <sueldo>234.13</sueldo>
+</empleado>

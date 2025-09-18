@@ -1,10 +1,5 @@
-package act27t1;
+package act29t1;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlRootElement
-@XmlType(propOrder={"idEmpleado", "nombre", "apellidos", "dni", "departamiento", "sueldo"})
 public class Empleado {
     private int idEmpleado;
     private String nombre;

@@ -1,0 +1,8 @@
+{
+    "idEmp": "12345",
+    "nombre": "John Doe",
+    "apellidos": "Smith",
+    "dni": "98765432A",
+    "departamento": "IT",
+    "sueldo": 55000
+}
