@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pais>
+    <nombre>ucrania</nombre>
+    <capital>kyiv</capital>
+    <habitantes>500</habitantes>
+    <costero>true</costero>
+</pais>
