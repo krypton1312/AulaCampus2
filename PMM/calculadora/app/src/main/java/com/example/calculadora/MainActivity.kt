@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var total: TextView
     private lateinit var lastmoveText: TextView
-
     private lateinit var buttons: List<Button>
     fun evaluateExpression(expr: String): Double {
         return ExpressionBuilder(expr).build().evaluate()
@@ -86,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                         if (current.isNotEmpty()) {
                             try {
                                 val value = current.toDouble()
-                                val result = value * value   // возводим в квадрат
+                                val result = value * value
                                 total.text = result.toString()
                                 lastmoveText.text = "$current²"
                             } catch (e: Exception) {
