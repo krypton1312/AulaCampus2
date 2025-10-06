@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="JetShark — Venta y reserva de motos de agua con visor 3D."/>
+  <title>JetShark — Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+  <script defer src="js/main.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="header">
+  <div class="container nav">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="JetShark logo" width="70" height="70"/>
+    </div>
+    <nav class="menu" aria-label="principal">
+      <a href="index.html">Inicio</a>
+      <a href="modelos.html">Modelos</a>
+      <a href="reservar.html" class="cta">Reservar ahora</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="panel">
+          <h1>¡Siente la velocidad del mar con JetShark!</h1>
+          <p>Elige entre modelos normales, deportivos o familiares, y pruébalos en nuestro visor 3D.</p>
+          <div class="actions">
+            <a class="btn primary" href="modelos.html">Ver modelos</a>
+            <a class="btn" href="reservar.html">Reservar ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Tipos de motos acuáticas</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="thumb">Normales</div>
+            <div class="body">
+              <span class="badge">Fáciles</span>
+              <p class="meta">Ideales para principiantes y paseos tranquilos.</p>
+              <div class="actions">
+                <a class="btn" href="modelos.html#normales">Ver detalles</a>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb">Deportivas</div>
+            <div class="body">
+              <span class="badge">Rendimiento</span>
+              <p class="meta">Máxima aceleración y maniobrabilidad.</p>
+              <div class="actions">
+                <a class="btn" href="modelos.html#deportivas">Ver detalles</a>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb">Familiares</div>
+            <div class="body">
+              <span class="badge">Hasta 3 plazas</span>
+              <p class="meta">Espacio y estabilidad para salir en grupo.</p>
+              <div class="actions">
+                <a class="btn" href="modelos.html#familiares">Ver detalles</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title">Visor 3D — prueba una moto</h2>
+        <div class="viewer">
+          <model-viewer src="assets/models/moto_normal.glb" alt="Modelo 3D de moto acuática"
+            poster="assets/images/hero.svg" shadow-intensity="0.5" camera-controls auto-rotate ar
+            ar-modes="webxr scene-viewer quick-look" style="width:100%;height:420px;border-radius:12px;">
+          </model-viewer>
+        </div>
+        <p style="margin-top:10px;font-size:14px;opacity:.8">Coloca tu archivo <code>.glb/.gltf</code> en <code>assets/models/</code> (por ejemplo <code>moto_normal.glb</code>) para activar el visor.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <div class="container cols">
+    <div>
+      <h4>JetShark</h4>
+      <p>Motos de agua &bull; Venta y reservas</p>
+      <p>&copy; 2025 JetShark. Todos los derechos reservados.</p>
+    </div>
+    <div>
+      <h4>Enlaces</h4>
+      <ul>
+        <li><a href="modelos.html">Modelos</a></li>
+        <li><a href="reservar.html">Reservar</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
