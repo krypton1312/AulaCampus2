@@ -8,7 +8,8 @@
     <color name="accent">#9575CD</color>
     <color name="text_primary">#212121</color>
     <color name="text_secondary">#666666</color>
-    <color name="buttonMove1">#7B1FA2</color>
-    <color name="buttonMove2">#E91E63</color>
-    <color name="buttonMove3">#FF9800</color>
+    <color name="buttonMove1">#2B2B2B</color>
+    <color name="buttonMove2">#4F4F4F</color>
+    <color name="buttonMove3">#B8B8B8</color>
+    <color name="gray">#BDBDBD</color>
 </resources>

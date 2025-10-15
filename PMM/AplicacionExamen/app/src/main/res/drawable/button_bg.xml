@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient
-        android:startColor="@color/buttonMove1"
-        android:centerColor="@color/buttonMove2"
+        android:startColor="@color/buttonMove3"
+        android:centerColor="@color/buttonMove1"
         android:endColor="@color/buttonMove3"
-        android:angle="45"
-        android:centerX="0.5"/>
+        android:angle="135"
+        android:centerX="0.2"/>
     <corners android:radius="20dp" />
     <padding android:left="12dp" android:right="12dp" android:top="8dp" android:bottom="8dp" />
-    <stroke android:color="@color/black" android:width="2dp" />
 </shape>
