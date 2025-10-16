@@ -12,4 +12,5 @@
     <color name="buttonMove2">#4F4F4F</color>
     <color name="buttonMove3">#B8B8B8</color>
     <color name="gray">#BDBDBD</color>
+    <color name="red">#FF0000</color>
 </resources>
