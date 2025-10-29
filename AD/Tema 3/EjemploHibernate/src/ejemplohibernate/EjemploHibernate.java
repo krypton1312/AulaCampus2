@@ -19,13 +19,15 @@ public class EjemploHibernate {
         configuracion.configure();
 
         SessionFactory conexion = configuracion.buildSessionFactory();
-
-        Pelicula miPelicula;
         
+        insertarPelicula(conexion, new Pelicula(1, "spiderman", "fantasy", 120, 500));
+        
+        System.out.println(consultaPelicula(conexion, 1));
+        /*                                                                                                                                                                         
         List<Pelicula> lista = listarPelicula(conexion);
         for(Pelicula pelicula: lista){
             System.out.println(pelicula);
-        }
+        }*/
         conexion.close();
     }
 
@@ -43,7 +45,7 @@ public class EjemploHibernate {
     public static List<Pelicula> listarPelicula(SessionFactory conexion){
         Session sesion = conexion.openSession();
         
-        Transaction tx = sesion.beginTransaction();
+        Transaction tx = sesion.beginTransaction ();
         
         List<Pelicula> lista = sesion.createQuery("from Pelicula", Pelicula.class).getResultList();
         
@@ -52,5 +54,19 @@ public class EjemploHibernate {
         sesion.close();
         
         return lista;
+    }
+    
+    public static void insertarPelicula(SessionFactory conexion, Pelicula pelicula){
+        Session sesion = conexion.openSession();
+        
+        Transaction tx = sesion.beginTransaction();
+        
+        sesion.persist(pelicula);
+        
+        System.out.println("bueno, ya esta insertada la peli..");
+        
+        tx.commit();
+        
+        sesion.close();
     }
 }
