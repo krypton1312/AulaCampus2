@@ -1,0 +1,305 @@
+/* === Подключение шрифтов ===
+   (не забудь добавить в HTML:
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">)
+*/
+
+/* === Общие стили === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* === Навигация === */
+header {
+ background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #AEE3E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 50px;
+  flex-wrap: wrap;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-container img {
+  height: 60px;
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+  color: #00796b;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00796b;
+}
+
+/* === Контакты === */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px;
+  gap: 60px;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.contact-form h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.sub-text {
+  color: #7da3b5;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* === Форма === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d5dee2;
+  background-color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #00b0ff;
+  box-shadow: 0 0 0 3px rgba(0, 176, 255, 0.1);
+}
+
+form textarea {
+  resize: none;
+}
+
+.submit-btn {
+  background-color: #00b0ff;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  width: 100px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.submit-btn:hover {
+  background-color: #0090d4;
+}
+
+/* === Правая колонка === */
+.contact-map {
+  flex: 1.3;
+  min-width: 320px;
+}
+
+.contact-map h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.map {
+  width: 100%;
+  height: 500px;
+  border: 0;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+/* === Контактная информация === */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-info h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+}
+
+.contact-item p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.contact-item strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #000;
+}
+
+/* === Footer === */
+footer {
+  background: #AEE3E0;
+  text-align: center;
+  padding: 25px 20px;
+  color: #000;
+  font-size: 13px;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* === Адаптивность === */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .contact-form,
+  .contact-map {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .map {
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .logo-container img {
+    height: 45px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-form h2 {
+    font-size: 22px;
+  }
+
+  .map {
+    height: 220px;
+  }
+
+  footer {
+    padding: 20px 10px;
+    font-size: 12px;
+  }
+}

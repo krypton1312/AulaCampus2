@@ -1,94 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Reserva tu moto de agua JetShark en pocos pasos."/>
-  <title>JetShark — Reservar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/responsive.css"/>
-  <script defer src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar | JetShark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-  <div class="container nav">
-    <div class="logo">
-      <img src="assets/images/logo.svg" alt="JetShark logo" width="160" height="48"/>
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="JetShark Logo">
+      <span class="logo-text">JetShark</span>
     </div>
-    <nav class="menu" aria-label="principal">
+    <nav>
       <a href="index.html">Inicio</a>
       <a href="modelos.html">Modelos</a>
-      <a href="reservar.html" class="cta">Reservar ahora</a>
+      <a href="reservar.html">Reservar</a>
       <a href="contacto.html">Contacto</a>
     </nav>
-  </div>
-</header>
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Reserva online</h1>
-      <form id="form" class="card" style="padding:18px;max-width:720px">
-        <div class="grid" style="grid-template-columns:1fr 1fr">
-          <label>Nombre<input required name="nombre" placeholder="Tu nombre"/></label>
-          <label>Teléfono<input required name="telefono" placeholder="+34 600 000 000"/></label>
-          <label>Email<input required type="email" name="email" placeholder="tucorreo@ejemplo.com"/></label>
-          <label>Modelo<select required name="modelo" id="modelo"></select></label>
-          <label>Fecha<input required type="date" name="fecha"/></label>
-          <label>Hora<input required type="time" name="hora"/></label>
-          <label>Duración<select name="duracion"><option>1 h</option><option>2 h</option><option>Día completo</option></select></label>
-          <label>Personas<select name="personas"><option>1</option><option>2</option><option>3</option></select></label>
-        </div>
-        <label>Comentarios<textarea name="comentarios" rows="4" placeholder="Preferencias, requisitos…"></textarea></label>
-        <div class="actions" style="margin-top:12px">
-          <button class="btn primary" type="submit">Enviar reserva</button>
-          <button class="btn" type="reset">Limpiar</button>
-        </div>
-        <p id="out" class="meta" style="margin-top:10px"></p>
-      </form>
-    </div>
-  </main>
-  <footer class="footer">
-  <div class="container cols">
-    <div>
-      <h4>JetShark</h4>
-      <p>Motos de agua &bull; Venta y reservas</p>
-      <p>&copy; 2025 JetShark. Todos los derechos reservados.</p>
-    </div>
-    <div>
-      <h4>Enlaces</h4>
-      <ul>
-        <li><a href="modelos.html">Modelos</a></li>
-        <li><a href="reservar.html">Reservar</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="#">Política de privacidad</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Social</h4>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">TikTok</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-  <script>
-    const modelos = ["JetShark Breeze","JetShark Pulse","JetShark Family","JetShark Wave","JetShark X","JetShark Cruise"];
-    const sel = document.getElementById('modelo');
-    modelos.forEach(m=>{ const o=document.createElement('option'); o.textContent=m; sel.appendChild(o); });
-    const params=new URLSearchParams(location.search);
-    const mQ = params.get('modelo');
-    if(mQ) sel.value = mQ;
+  </header>
 
-    document.getElementById('form').addEventListener('submit', e=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      document.getElementById('out').textContent = "¡Gracias! Nos pondremos en contacto contigo pronto. Resumen: " + JSON.stringify(data);
-      e.target.reset();
-    });
-  </script>
+  <section class="form-container">
+    <form>
+      <h2>Reserva tu JetSki</h2>
+      <input type="text" placeholder="Nombre">
+      <input type="tel" placeholder="Teléfono">
+      <input type="email" placeholder="Correo">
+      <select>
+        <option>Seleccionar Modelo de JetSki</option>
+      </select>
+      <input type="date">
+      <input type="time">
+      <input type="number" placeholder="Duración (horas)">
+      <button>Reservar Ahora</button>
+    </form>
+
+    <img src="img/moto1.svg" alt="Moto de agua">
+  </section>
+
+      <footer>
+        <div class="footer-top">
+            <p>Dirección: Calle Falsa 123, Ciudad, País</p>
+            <p>Teléfono: +1-555-123-4567</p>
+            <p>Correo electrónico: info@jetshark.com</p>
+        </div>
+
+        <div class="footer-icons">
+            <a href="#"><img src="img/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="img/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="img/youtube.svg" alt="YouTube"></a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 JetShark. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

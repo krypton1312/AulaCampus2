@@ -1,124 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Modelos de motos de agua JetShark con filtros por tipo, precio y potencia."/>
-  <title>JetShark — Modelos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/responsive.css"/>
-  <script defer src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos | JetShark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="header">
-  <div class="container nav">
-    <div class="logo">
-      <img src="assets/images/logo.svg" alt="JetShark logo" width="160" height="48"/>
-    </div>
-    <nav class="menu" aria-label="principal">
-      <a href="index.html">Inicio</a>
-      <a href="modelos.html">Modelos</a>
-      <a href="reservar.html" class="cta">Reservar ahora</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </div>
-</header>
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Modelos disponibles</h1>
-      <div class="filterbar" role="region" aria-label="filtros de modelos">
-        <label>Tipo
-          <select id="f-tipo">
-            <option value="">Todos</option>
-            <option value="normal">Normales</option>
-            <option value="deportiva">Deportivas</option>
-            <option value="familiar">Familiares</option>
-          </select>
-        </label>
-        <label>Precio máx. (€) <input id="f-precio" type="range" min="50" max="500" step="10" value="500"/></label>
-        <span id="precio-out">≤ 500</span>
-        <label>Potencia mín. (HP) <input id="f-potencia" type="range" min="60" max="250" step="10" value="60"/></label>
-        <span id="potencia-out">≥ 60</span>
-      </div>
-
-      <div id="cards" class="grid"></div>
-    </div>
-  </main>
-  <footer class="footer">
-  <div class="container cols">
-    <div>
-      <h4>JetShark</h4>
-      <p>Motos de agua &bull; Venta y reservas</p>
-      <p>&copy; 2025 JetShark. Todos los derechos reservados.</p>
-    </div>
-    <div>
-      <h4>Enlaces</h4>
-      <ul>
-        <li><a href="modelos.html">Modelos</a></li>
-        <li><a href="reservar.html">Reservar</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="#">Política de privacidad</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Social</h4>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">TikTok</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
-  <script>
-  const data = [
-    {id:1, nombre:"JetShark Breeze", tipo:"normal", precio:120, potencia:90, plazas:1},
-    {id:2, nombre:"JetShark Pulse", tipo:"deportiva", precio:220, potencia:180, plazas:1},
-    {id:3, nombre:"JetShark Family", tipo:"familiar", precio:180, potencia:130, plazas:3},
-    {id:4, nombre:"JetShark Wave", tipo:"normal", precio:140, potencia:110, plazas:2},
-    {id:5, nombre:"JetShark X", tipo:"deportiva", precio:300, potencia:230, plazas:1},
-    {id:6, nombre:"JetShark Cruise", tipo:"familiar", precio:200, potencia:140, plazas:3},
-  ];
-
-  const cards = document.getElementById('cards');
-  const fTipo = document.getElementById('f-tipo');
-  const fPrecio = document.getElementById('f-precio');
-  const fPotencia = document.getElementById('f-potencia');
-  const precioOut = document.getElementById('precio-out');
-  const potenciaOut = document.getElementById('potencia-out');
-
-  function render(list){
-    cards.innerHTML = list.map(x => `
-      <article class="card" data-id="${x.id}">
-        <div class="thumb">${x.nombre}</div>
-        <div class="body">
-          <span class="badge">${x.tipo}</span>
-          <p class="meta">Precio desde <strong>${x.precio} €/h</strong> · Potencia <strong>${x.potencia} HP</strong> · Plazas: ${x.plazas}</p>
-          <div class="actions">
-            <a class="btn" href="reservar.html?modelo=${encodeURIComponent(x.nombre)}">Reservar</a>
-            <a class="btn" href="#" onclick="alert('Añade tu visor 3D en assets/models y enlázalo aquí.');return false;">Ver en 3D</a>
-          </div>
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="JetShark Logo">
+            <span class="logo-text">JetShark</span>
         </div>
-      </article>
-    `).join('');
-  }
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="modelos.html">Modelos</a>
+            <a href="reservar.html">Reservar</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
-  function apply(){
-    const t = fTipo.value;
-    const p = +fPrecio.value;
-    const hp = +fPotencia.value;
-    precioOut.textContent = `≤ ${p}`;
-    potenciaOut.textContent = `≥ ${hp}`;
-    const list = data.filter(x => (!t || x.tipo===t) && x.precio <= p && x.potencia >= hp);
-    render(list);
-  }
+    <section class="modelos-container">
+        <h2>Modelos por Categoría</h2>
+        <div class="modelos-tabs">
+            <a href="#" class="active">Moto acuática normal</a>
+            <a href="#">Moto acuática deportiva</a>
+            <a href="#">Moto acuática familiar</a>
+        </div>
 
-  [fTipo, fPrecio, fPotencia].forEach(el => el.addEventListener('input', apply));
-  render(data);
-  </script>
+
+        <h3>Modelos Disponibles</h3>
+        <div class="modelos-grid">
+            <div class="model-card"><img src="img/moto1.svg" alt="">
+                <h4>Modelo X1</h4><button>Reservar</button>
+            </div>
+            <div class="model-card"><img src="img/moto2.svg" alt="">
+                <h4>Modelo X2</h4><button>Reservar</button>
+            </div>
+            <div class="model-card"><img src="img/moto3.svg" alt="">
+                <h4>Modelo X3</h4><button>Reservar</button>
+            </div>
+            <div class="model-card"><img src="img/moto1.svg" alt="">
+                <h4>Modelo X4</h4><button>Reservar</button>
+            </div>
+            <div class="model-card"><img src="img/moto2.svg" alt="">
+                <h4>Modelo X5</h4><button>Reservar</button>
+            </div>
+            <div class="model-card"><img src="img/moto3.svg" alt="">
+                <h4>Modelo X6</h4><button>Reservar</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <p>Dirección: Calle Falsa 123, Ciudad, País</p>
+            <p>Teléfono: +1-555-123-4567</p>
+            <p>Correo electrónico: info@jetshark.com</p>
+        </div>
+
+        <div class="footer-icons">
+            <a href="#"><img src="img/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="img/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="img/youtube.svg" alt="YouTube"></a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 JetShark. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
+
 </html>

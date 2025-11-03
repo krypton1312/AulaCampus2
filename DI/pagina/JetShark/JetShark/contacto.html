@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Contacto JetShark: ubicación, teléfono, correo y formulario."/>
-  <title>JetShark — Contacto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/responsive.css"/>
-  <script defer src="js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | JetShark</title>
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="contacto.css" />
 </head>
+
 <body>
-  <header class="header">
-  <div class="container nav">
-    <div class="logo">
-      <img src="assets/images/logo.svg" alt="JetShark logo" width="160" height="48"/>
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="JetShark Logo" />
+      <span class="logo-text">JetShark</span>
     </div>
-    <nav class="menu" aria-label="principal">
+    <nav>
       <a href="index.html">Inicio</a>
       <a href="modelos.html">Modelos</a>
-      <a href="reservar.html" class="cta">Reservar ahora</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="reservar.html">Reservar</a>
+      <a href="contacto.html" class="active">Contacto</a>
     </nav>
-  </div>
-</header>
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Contacto</h1>
-      <div class="grid" style="grid-template-columns:1.2fr .8fr">
-        <div class="card" style="padding:0;overflow:hidden">
-          <div class="thumb" style="height:320px">Mapa (inserta tu iframe de Google Maps)</div>
-          <div class="body">
-            <p class="meta">Dirección: Puerto Deportivo, Valencia</p>
-            <p class="meta">Teléfono: +34 600 000 000</p>
-            <p class="meta">Correo: hola@jetshark.io</p>
-            <p class="meta">Horario: 09:00 — 20:00 (L–D)</p>
-          </div>
+  </header>
+
+  <section class="contact-container">
+    <!-- Левая колонка -->
+    <div class="contact-form">
+      <h2>Contacta con nosotros</h2>
+      <p class="sub-text">Aquí estamos para ayudarte, no tengas miedo</p>
+
+      <form>
+        <label>Nombre</label>
+        <input type="text" placeholder="Tu nombre" />
+
+        <label>Email</label>
+        <input type="email" placeholder="Tu correo electrónico" />
+
+        <label>Teléfono</label>
+        <input type="tel" placeholder="Tu número de teléfono" />
+
+        <label>Mensaje</label>
+        <textarea placeholder="Escribe tu mensaje" rows="5"></textarea>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <!-- Правая колонка -->
+    <div class="contact-map">
+      <h3>Donde estamos</h3>
+      <iframe class="map" src="https://www.google.com/maps?q=Miami&output=embed" allowfullscreen="" loading="lazy"></iframe>
+
+      <div class="contact-info">
+        <h3>Contactos</h3>
+
+        <div class="contact-item">
+          <img src="img/telefono.svg" alt="Teléfono" />
+          <p><strong>Móvil:</strong> +1-555-123-4567</p>
         </div>
-        <form class="card" style="padding:18px">
-          <label>Tu email<input required type="email" placeholder="tucorreo@ejemplo.com"/></label>
-          <label>Mensaje<textarea required rows="6" placeholder="¿En qué podemos ayudarte?"></textarea></label>
-          <div class="actions"><button class="btn primary" type="submit">Enviar</button></div>
-          <p class="meta" style="margin-top:10px">Nota: este formulario es demostrativo; conecta tu backend o un servicio de formularios.</p>
-        </form>
+
+        <div class="contact-item">
+          <img src="img/mail.svg" alt="Email" />
+          <p><strong>Email:</strong> info@jetshark.com</p>
+        </div>
+
+        <div class="contact-item">
+          <img src="img/maps.svg" alt="Dirección" />
+          <p><strong>Dirección:</strong> 123 Ocean Drive, Miami, FL 33139</p>
+        </div>
       </div>
     </div>
-  </main>
-  <footer class="footer">
-  <div class="container cols">
-    <div>
-      <h4>JetShark</h4>
-      <p>Motos de agua &bull; Venta y reservas</p>
-      <p>&copy; 2025 JetShark. Todos los derechos reservados.</p>
-    </div>
-    <div>
-      <h4>Enlaces</h4>
-      <ul>
-        <li><a href="modelos.html">Modelos</a></li>
-        <li><a href="reservar.html">Reservar</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="#">Política de privacidad</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Social</h4>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">TikTok</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+  </section>
 </body>
 </html>
