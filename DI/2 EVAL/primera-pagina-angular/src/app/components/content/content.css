@@ -1,0 +1,39 @@
+.content {
+  padding: 24px;
+}
+
+.content__title {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.content__text {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.content__cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 220px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card__title {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.card__text {
+  margin: 0;
+  font-size: 14px;
+}
