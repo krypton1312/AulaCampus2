@@ -1,0 +1,16 @@
+<div class="card skills">
+  <h3>Навыки</h3>
+
+  <div class="skills-grid">
+    <div class="skill" *ngFor="let skill of skills">
+      <div class="skill-header">
+        <span class="skill-name">{{ skill.name }}</span>
+        <span class="skill-level">{{ skill.level }}%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
+      </div>
+      <div class="skill-category">{{ skill.category }}</div>
+    </div>
+  </div>
+</div>

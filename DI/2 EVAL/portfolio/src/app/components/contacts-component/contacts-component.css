@@ -1,0 +1,105 @@
+.card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 20px;
+}
+
+.contacts h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.contacts-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-form {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+input,
+textarea {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(75, 85, 99, 0.9);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 13px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(129, 140, 248, 0.9);
+}
+
+button {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  color: #e5e7eb;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button:not(:disabled):hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.contacts-info {
+  flex: 1 1 220px;
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+.contacts-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0;
+}
+
+.contacts-info li {
+  margin-bottom: 6px;
+}
+
+.contacts-info span {
+  color: #9ca3af;
+  margin-right: 4px;
+}
+
+.contacts-info a {
+  color: #c7d2fe;
+  text-decoration: none;
+}
+
+.contacts-info a:hover {
+  text-decoration: underline;
+}

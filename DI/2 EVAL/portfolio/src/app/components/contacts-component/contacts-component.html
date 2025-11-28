@@ -1,0 +1,77 @@
+<div class="card contacts">
+  <h3>Contacto</h3>
+
+  <div class="contacts-layout">
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input
+          id="name"
+          name="name"
+          [(ngModel)]="model.name"
+          required
+          placeholder="¿Cómo te llamas?"
+        />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          [(ngModel)]="model.email"
+          required
+          type="email"
+          placeholder="tu@email.com"
+        />
+      </div>
+
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea
+          id="message"
+          name="message"
+          [(ngModel)]="model.message"
+          rows="4"
+          placeholder="Cuéntame brevemente en qué te puedo ayudar"
+        ></textarea>
+      </div>
+
+      <button type="submit" [disabled]="!contactForm.form.valid">
+        Enviar
+      </button>
+    </form>
+
+    <div class="contacts-info">
+      <p>También puedes contactarme directamente:</p>
+      <ul>
+        <li>
+          <span>Teléfono:</span>
+          <a href="tel:+34674045404">+34 67 404 54 04</a>
+        </li>
+        <li>
+          <span>Email:</span>
+          <a href="mailto:egor20042013@gmail.com">egor20042013@gmail.com</a>
+        </li>
+        <li>
+          <span>GitHub:</span>
+          <a href="https://github.com/krypton1312" target="_blank"
+          >github.com/krypton1312</a
+          >
+        </li>
+        <li>
+          <span>LinkedIn:</span>
+          <a
+            href="https://www.linkedin.com/in/yehor-burlachenko"
+            target="_blank"
+          >linkedin.com/in/yehor-burlachenko</a
+          >
+        </li>
+        <li>
+          <span>Ubicación:</span>
+          Cami Real 57, 46470 Catarroja, Valencia
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

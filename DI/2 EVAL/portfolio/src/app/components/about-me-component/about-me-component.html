@@ -1,0 +1,25 @@
+<div class="card about">
+  <div class="about-main">
+    <div class="avatar">
+      <img src="photo.jpg" alt="Yehor" />
+    </div>
+
+    <div class="info">
+      <h1>{{ name }}</h1>
+      <h2>{{ role }}</h2>
+      <p class="location">{{ location }}</p>
+
+      <p class="summary">
+        {{ summary }}
+      </p>
+
+      <ul class="highlights">
+        <li *ngFor="let item of highlights">{{ item }}</li>
+      </ul>
+
+      <div class="tags">
+        <span *ngFor="let lang of languages">{{ lang }}</span>
+      </div>
+    </div>
+  </div>
+</div>

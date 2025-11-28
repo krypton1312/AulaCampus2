@@ -1,0 +1,23 @@
+<div class="card projects">
+  <h3>Proyectos</h3>
+
+  <div class="projects-grid">
+    <article class="project-card" *ngFor="let project of projects">
+      <div class="project-status">{{ project.status }}</div>
+      <h4>{{ project.title }}</h4>
+      <p class="project-desc">{{ project.description }}</p>
+
+      <div class="project-tech">
+        <span *ngFor="let t of project.tech">{{ t }}</span>
+      </div>
+
+      <a
+        *ngIf="project.link"
+        [href]="project.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+      >Ver</a>
+    </article>
+  </div>
+</div>
