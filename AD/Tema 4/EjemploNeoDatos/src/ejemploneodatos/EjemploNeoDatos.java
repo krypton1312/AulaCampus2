@@ -28,7 +28,7 @@ public class EjemploNeoDatos {
         
         System.out.println(consulta(odb, "Jusus"));*/
         
-        eliminar(odb, "Jusus");
+        //eliminar(odb, "Jusus");
 
         odb.close();
     }
@@ -55,6 +55,16 @@ public class EjemploNeoDatos {
         }
 
         return jugadores;
+    }
+    
+    public static void consultaOQL(ODB odb, ICriterion condicion) {
+        CriteriaQuery consulta = new CriteriaQuery(Jugador.class, condicion);
+
+        Objects<Jugador> obj = odb.getObjects(consulta);
+
+        while (obj.hasNext()) {
+            System.out.println(obj.next());
+        }
     }
     
     public static void actualiza(ODB odb, Jugador miJugador){
