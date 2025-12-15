@@ -1,0 +1,31 @@
+<app-header [titulo]="titulo"></app-header>
+
+<div class="container">
+  <div class="market">
+    <app-filtro class="sidebar" (cambioFiltros)="aplicarFiltros($event)"></app-filtro>
+
+    <main class="content">
+      <div class="topline">
+        <div>
+          <div class="crumbs">Inicio <span>›</span> Coches en venta <span>›</span> <strong>{{ tipoSeleccionado }}</strong></div>
+          <h1 class="h1">Coches disponibles</h1>
+          <div class="muted">Mostrando {{ (pagina-1)*porPagina + 1 }}–{{ (pagina-1)*porPagina + cochesPagina.length }} de {{ cochesFiltrados.length }} resultados</div>
+        </div>
+      </div>
+
+      <app-lista-coches
+        [coches]="cochesPagina"
+        [seleccionado]="seleccionado"
+        (seleccionar)="seleccionarCoche($event)">
+      </app-lista-coches>
+
+      <div class="pager">
+        <button class="btn" (click)="prevPage()" [disabled]="pagina === 1">← Anterior</button>
+        <div class="pagePill">Página {{ pagina }} / {{ totalPaginas }}</div>
+        <button class="btn" (click)="nextPage()" [disabled]="pagina === totalPaginas">Siguiente →</button>
+      </div>
+
+      <app-detalle-coche [coche]="seleccionado" (cerrar)="limpiarSeleccion()"></app-detalle-coche>
+    </main>
+  </div>
+</div>

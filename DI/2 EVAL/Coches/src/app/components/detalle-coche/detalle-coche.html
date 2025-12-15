@@ -1,0 +1,22 @@
+<div class="overlay" *ngIf="coche as c" (click)="cerrarPanel()">
+  <div class="modal card" (click)="$event.stopPropagation()">
+
+    <img [src]="c.imagen" class="hero">
+
+    <div class="content">
+      <strong style="font-size:20px;">
+        {{ c.anio }} {{ c.marca }} {{ c.modelo }}
+      </strong>
+
+      <div class="price">€{{ c.precio | number }}</div>
+
+      <p class="muted">{{ c.descripcion }}</p>
+
+      <ul>
+        <li *ngFor="let e of c.extras">✔ {{ e }}</li>
+      </ul>
+
+      <button class="btn primary" style="width:100%;">Contactar</button>
+    </div>
+  </div>
+</div>

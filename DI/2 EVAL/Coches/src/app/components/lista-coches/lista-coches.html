@@ -1,0 +1,25 @@
+<section class="gridCars">
+  <article class="card car"
+           *ngFor="let c of coches"
+           (click)="elegir(c)">
+
+    <div class="imgWrap">
+      <img [src]="c.imagen">
+      <span class="badge green" *ngIf="c.destacado">Precio bajo</span>
+    </div>
+
+    <div class="body">
+      <strong>{{ c.anio }} {{ c.marca }} {{ c.modelo }}</strong>
+
+      <div class="muted" style="font-size:13px;">
+        {{ c.km }} km · {{ c.transmision }} · {{ c.combustible }}
+      </div>
+
+      <div class="price">€{{ c.precio | number }}</div>
+
+      <button class="btn primary" style="width:100%;margin-top:10px;">
+        Detalles
+      </button>
+    </div>
+  </article>
+</section>

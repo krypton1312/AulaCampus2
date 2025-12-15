@@ -1,0 +1,77 @@
+<aside class="card filter">
+  <div class="head">
+    <strong>Filtros</strong>
+    <button class="link" type="button" (click)="resetAll()">Restablecer</button>
+  </div>
+
+  <div class="section">
+    <div class="label">Rango de precio</div>
+
+    <div class="priceRow">
+      <div class="priceBox">
+        <span class="muted">€</span>
+        <input class="miniInput" type="number" [(ngModel)]="precioMin" (input)="onMinRange(precioMin)" />
+      </div>
+      <div class="priceBox">
+        <span class="muted">€</span>
+        <input class="miniInput" type="number" [(ngModel)]="precioMax" (input)="onMaxRange(precioMax)" />
+      </div>
+    </div>
+
+    <div class="rangeWrap">
+      <div class="rangeTrack"></div>
+      <div class="rangeFill" [style.left.%]="minPct" [style.right.%]="100 - maxPct"></div>
+
+      <input class="range" type="range"
+             [min]="sliderMin" [max]="sliderMax" [step]="500"
+             [value]="precioMin"
+             (input)="onMinRange(($any($event.target)).valueAsNumber)">
+
+      <input class="range" type="range"
+             [min]="sliderMin" [max]="sliderMax" [step]="500"
+             [value]="precioMax"
+             (input)="onMaxRange(($any($event.target)).valueAsNumber)">
+    </div>
+
+    <div class="muted" style="font-size:12px;margin-top:8px;">
+      €{{
+        precioMin | number
+      }} – €{{ precioMax | number }}
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Marca & modelo</div>
+    <select class="select" [(ngModel)]="marca" (change)="emitir()">
+      <option *ngFor="let m of marcas" [value]="m">{{ m }}</option>
+    </select>
+
+    <div style="height:10px"></div>
+    <input class="input" [(ngModel)]="texto" (input)="emitir()" placeholder="Busca modelo">
+  </div>
+
+  <div class="section">
+    <div class="label">Carroceria</div>
+
+    <div class="btGrid">
+      <button type="button" class="bt" [class.active]="tipo==='Sedán'" (click)="tipo='Sedán'; emitir()">Sedan</button>
+      <button type="button" class="bt" [class.active]="tipo==='SUV'" (click)="tipo='SUV'; emitir()">SUV</button>
+      <button type="button" class="bt" [class.active]="tipo==='Eléctrico'" (click)="tipo='Eléctrico'; emitir()">EV</button>
+      <button type="button" class="bt" [class.active]="tipo==='Deportivo'" (click)="tipo='Deportivo'; emitir()">Sport</button>
+    </div>
+
+    <div class="miniRow">
+      <button type="button" class="chip" [class.active]="tipo==='Todos'" (click)="tipo='Todos'; emitir()">All</button>
+      <button type="button" class="chip" [class.active]="soloStock" (click)="soloStock=!soloStock; emitir()">In Stock</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Ordenar por</div>
+    <select class="select" [(ngModel)]="orden" (change)="emitir()">
+      <option *ngFor="let o of ordenes" [value]="o.value">{{ o.label }}</option>
+    </select>
+  </div>
+
+  <button class="btn primary big" type="button" (click)="emitir()">Buscar</button>
+</aside>
