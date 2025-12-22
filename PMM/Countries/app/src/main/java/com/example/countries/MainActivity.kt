@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
-        // поиск по названию страны
         etSearch.addTextChangedListener { text ->
             val q = text?.toString()?.trim().orEmpty().lowercase()
             val filtered = if (q.isEmpty()) {
