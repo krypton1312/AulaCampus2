@@ -16,9 +16,9 @@ public class EviarCorreo {
         String login = "alumno@formaval.com";
         String password = "Pass.2025";
         String origen = "alumno@formaval.com";
-        String destino = "josibla@campusaula.com";
-        String asunto = "Saludos";
-        String mensaje = "Mensaje de bienvenida";
+        String destino = "janaco@campusaula.com";
+        String asunto = "hola";
+        String mensaje = "hola";
 
         AuthenticatingSMTPClient cliente = new AuthenticatingSMTPClient("TLS", true);
 
