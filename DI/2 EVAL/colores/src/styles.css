@@ -1,0 +1,116 @@
+/* ===== Reset / Base ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* ===== Theme Tokens (ONLY HERE COLORS LIVE) ===== */
+:root {
+  /* base */
+  --bg: #FFF1D6;
+  --surface: #FFE0B2;
+  --panel: #FFF7E8;
+  --primary: #E53935;
+  --secondary: #FB8C00;
+  --text: #2E1A12;
+  --muted: #6D4C41;
+  --border: #FFB74D;
+
+  /* derived */
+  --on-primary: #FFFFFF;    /* text on primary buttons */
+  --link: var(--text);
+  --focus: var(--secondary);
+
+  /* shadows */
+  --shadow: 0 12px 30px rgba(46, 26, 18, .15);
+  --shadow-soft: 0 10px 20px rgba(46, 26, 18, .10);
+}
+
+/* Occidente theme */
+body[data-theme="occidente"] {
+  --bg: #0D1B2A;
+  --surface: #1B263B;
+  --panel: #122033;
+  --primary: #3A86FF;
+  --secondary: #8338EC;
+  --text: #E0E1DD;
+  --muted: #A8B2D1;
+  --border: #415A77;
+
+  --on-primary: #FFFFFF;
+  --link: var(--text);
+  --focus: var(--secondary);
+
+  --shadow: 0 14px 34px rgba(0, 0, 0, .40);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, .28);
+}
+
+/* selection themed */
+::selection { background: var(--primary); color: var(--on-primary); }
+
+/* link base */
+a { color: var(--link); }
+/* ===== Reset / Base ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* ===== Theme Tokens (ONLY HERE COLORS LIVE) ===== */
+:root {
+  /* base */
+  --bg: #FFF1D6;
+  --surface: #FFE0B2;
+  --panel: #FFF7E8;
+  --primary: #E53935;
+  --secondary: #FB8C00;
+  --text: #2E1A12;
+  --muted: #6D4C41;
+  --border: #FFB74D;
+
+  /* derived */
+  --on-primary: #FFFFFF;    /* text on primary buttons */
+  --link: var(--text);
+  --focus: var(--secondary);
+
+  /* shadows */
+  --shadow: 0 12px 30px rgba(46, 26, 18, .15);
+  --shadow-soft: 0 10px 20px rgba(46, 26, 18, .10);
+}
+
+/* Occidente theme */
+body[data-theme="occidente"] {
+  --bg: #0D1B2A;
+  --surface: #1B263B;
+  --panel: #122033;
+  --primary: #3A86FF;
+  --secondary: #8338EC;
+  --text: #E0E1DD;
+  --muted: #A8B2D1;
+  --border: #415A77;
+
+  --on-primary: #FFFFFF;
+  --link: var(--text);
+  --focus: var(--secondary);
+
+  --shadow: 0 14px 34px rgba(0, 0, 0, .40);
+  --shadow-soft: 0 10px 22px rgba(0, 0, 0, .28);
+}
+
+/* selection themed */
+::selection { background: var(--primary); color: var(--on-primary); }
+
+/* link base */
+a { color: var(--link); }

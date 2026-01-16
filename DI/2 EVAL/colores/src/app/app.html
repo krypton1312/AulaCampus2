@@ -1,0 +1,182 @@
+<div class="page">
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <span class="brand__icon">🧨</span>
+        <span class="brand__name">PetardasFlash</span>
+      </div>
+
+      <nav class="nav">
+        <a class="nav__link" href="#" *ngFor="let item of menu; trackBy: trackByIndex">{{ item }}</a>
+      </nav>
+
+      <div class="toggle" role="group" aria-label="Selector de tema">
+        <button
+          class="toggle__btn"
+          [class.is-active]="theme === 'oriente'"
+          (click)="setTheme('oriente')"
+          type="button"
+          aria-label="Tema Oriente">
+          Oriente
+        </button>
+        <button
+          class="toggle__btn"
+          [class.is-active]="theme === 'occidente'"
+          (click)="setTheme('occidente')"
+          type="button"
+          aria-label="Tema Occidente">
+          Occidente
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__left">
+          <div class="pill">
+            <span class="pill__dot"></span>
+            EDICIÓN FESTIVAL
+          </div>
+
+          <h1 class="hero__title">
+            Explosión de <span class="accent">color</span>,<br />
+            energía y tradición
+          </h1>
+
+          <p class="hero__subtitle">
+            Petardas premium para celebraciones con máxima seguridad. Vive la magia del fuego controlado.
+          </p>
+
+          <div class="hero__actions">
+            <button class="btn btn--primary" type="button">Comprar ahora</button>
+            <button class="btn btn--ghost" type="button">Ver catálogo</button>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="hero__media" role="img" aria-label="Fuegos artificiales">
+            <div class="hero__img"
+                 [style.backgroundImage]="'url(' + heroImage + ')'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--3">
+          <article class="card" *ngFor="let f of features; trackBy: trackByIndex">
+            <div class="card__icon">{{ f.icon }}</div>
+            <h3 class="card__title">{{ f.title }}</h3>
+            <p class="card__text">{{ f.text }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="container">
+        <div class="product">
+          <div class="product__media" role="img" aria-label="Producto destacado">
+            <div class="product__img"
+                 [style.backgroundImage]="'url(' + productImage + ')'">
+            </div>
+            <div class="product__tag">Producto destacado</div>
+          </div>
+
+          <div class="product__info">
+            <div class="product__badge">{{ product.badge }}</div>
+
+            <div class="product__head">
+              <h2 class="product__title">{{ product.name }}</h2>
+              <div class="product__rating">
+                <span class="stars" aria-label="Valoración 4.5 de 5">★★★★☆</span>
+                <span class="muted">{{ product.reviews }}</span>
+              </div>
+            </div>
+
+            <p class="product__desc">{{ product.desc }}</p>
+
+            <ul class="product__bullets">
+              <li class="bullet" *ngFor="let b of product.bullets; trackBy: trackByIndex">
+                <span class="bullet__icon">{{ b.icon }}</span>
+                <span class="bullet__label">
+                  <b>{{ b.label }}:</b> <span class="muted">{{ b.value }}</span>
+                </span>
+              </li>
+            </ul>
+
+            <div class="product__buy">
+              <div class="price">
+                <div class="price__old">{{ product.priceOld }}</div>
+                <div class="price__new">{{ product.price }}</div>
+              </div>
+              <button class="btn btn--dark" type="button">Añadir al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container center">
+        <div class="shield" aria-hidden="true">🛡️</div>
+        <h2 class="h2">Normas de uso seguro</h2>
+
+        <div class="rules">
+          <div class="rule" *ngFor="let r of safety; let i = index; trackBy: trackByIndex">
+            <div class="rule__n">{{ i + 1 }}</div>
+            <div class="rule__text">{{ r }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="h2 center">Lo que dicen nuestros clientes</h2>
+
+        <div class="grid grid--3">
+          <article class="review" *ngFor="let rv of reviews; trackBy: trackByIndex">
+            <div class="review__stars" aria-label="Valoración">
+              <ng-container *ngFor="let _ of [].constructor(rv.stars); trackBy: trackByIndex">★</ng-container>
+              <ng-container *ngFor="let _ of [].constructor(5 - rv.stars); trackBy: trackByIndex">☆</ng-container>
+            </div>
+
+            <p class="review__text">"{{ rv.text }}"</p>
+
+            <div class="review__who">
+              <div class="avatar" aria-hidden="true">{{ rv.name.charAt(0) }}</div>
+              <div>
+                <div class="review__name">{{ rv.name }}</div>
+                <div class="muted small">{{ rv.city }}</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__icon">🧨</span>
+        <span class="brand__name">Petardas Flash</span>
+      </div>
+
+      <div class="footer__links">
+        <a href="#" class="footer__link">Aviso Legal</a>
+        <a href="#" class="footer__link">Política de Privacidad</a>
+        <a href="#" class="footer__link">Política de Cookies</a>
+        <a href="#" class="footer__link">Envíos y Devoluciones</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      © 2026 Petardas Flash — Valencia. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</div>
