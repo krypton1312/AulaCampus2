@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-light: #fb923c;
+  --color-brand: #f59e0b;
+  --color-brand-dark: #b45309;
+  --color-slate-900: #0f172a;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --brand: #f59e0b;
+  --brand-light: #fb923c;
+  --surface: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-200 inline-block text-center;
+  }
+  .btn-primary {
+    @apply bg-brand text-white hover:bg-brand-light shadow-lg shadow-orange-200/50 hover:shadow-orange-300/50;
+  }
+  .btn-outline {
+    @apply border-2 border-slate-200 text-slate-700 hover:bg-slate-50;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4 text-slate-900;
+  }
+  .section-subtitle {
+    @apply text-lg text-muted text-center max-w-2xl mx-auto mb-12;
+  }
+}
+
+.glow-orange {
+  box-shadow: 0 0 50px -12px rgba(245, 158, 11, 0.3);
+}
+
+.gradient-hero {
+  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent),
+              radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.02), transparent);
+}
