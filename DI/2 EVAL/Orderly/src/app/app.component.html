@@ -1,0 +1,33 @@
+<div class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased overflow-x-hidden">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root">
+    <app-navbar></app-navbar>
+
+    <main class="flex-grow pt-16">
+      <app-hero></app-hero>
+
+      <section class="w-full border-y border-border-dark bg-[#110e0c] py-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p class="text-white/40 text-sm font-medium uppercase tracking-widest whitespace-nowrap">
+            Con la confianza de +500 locales
+          </p>
+          <div
+            class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-40 grayscale transition-all hover:grayscale-0 hover:opacity-100">
+            <span class="text-white font-display font-bold text-xl">LaCentral</span>
+            <span class="text-white font-display font-bold text-xl">TapasBar</span>
+            <span class="text-white font-display font-bold text-xl">CaféNorte</span>
+            <span class="text-white font-display font-bold text-xl">Bistró22</span>
+            <span class="text-white font-display font-bold text-xl">Vino&amp;Cia</span>
+          </div>
+        </div>
+      </section>
+
+      <app-problem-solution></app-problem-solution>
+      <app-features></app-features>
+      <app-testimonial></app-testimonial>
+      <app-pricing></app-pricing>
+      <app-final-cta></app-final-cta>
+    </main>
+
+    <app-footer></app-footer>
+  </div>
+</div>
